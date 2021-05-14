@@ -8,10 +8,12 @@ connection = sqlite3.connect("test.db")
 cursor = connection.cursor()
 
 # Теперь можем выполнить запрос к БД
-cursor.execute("INSERT INTO table_name (`column2`, `column3`) VALUES ('value1', 'value2');")
-
+cursor.execute("SELECT * FROM table_name;")
+a = cursor.fetchall()
+print(a)
 # Фиксируем изменения в БД
 connection.commit()
-
+print(a)
 # Не забываем закрыть соединение
 connection.close()
+print(a)
